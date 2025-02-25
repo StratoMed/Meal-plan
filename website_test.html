@@ -1,0 +1,124 @@
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Navbar } from "./components/Navbar";
+import { Home } from "./pages/Home";
+import { About } from "./pages/About";
+import { Services } from "./pages/Services";
+import { Training } from "./pages/Training";
+import { Contact } from "./pages/Contact";
+import Footer from "./components/Footer";
+
+function App() {
+  return (
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/training" element={<Training />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+      <Footer />
+    </Router>
+  );
+}
+
+export default App;
+
+// Components/Navbar.js
+import React from "react";
+import { Link } from "react-router-dom";
+
+export const Navbar = () => {
+  return (
+    <nav className="bg-blue-600 p-4 text-white flex justify-between">
+      <h1 className="text-xl font-bold">StratoMED</h1>
+      <div className="space-x-4">
+        <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
+        <Link to="/services">Services</Link>
+        <Link to="/training">Training</Link>
+        <Link to="/contact">Contact</Link>
+      </div>
+    </nav>
+  );
+};
+
+// Components/Footer.js
+const Footer = () => {
+  return (
+    <footer className="bg-gray-800 text-white text-center p-4 mt-8">
+      <p>© 2025 StratoMED Air Medical Services Ltd. All Rights Reserved.</p>
+    </footer>
+  );
+};
+
+export default Footer;
+
+// Pages/Home.js
+export const Home = () => {
+  return (
+    <div className="p-8 text-center">
+      <h2 className="text-3xl font-bold">Welcome to StratoMED</h2>
+      <p>Elevating Standards, Advancing Care.</p>
+      <img src="/images/air-ambulance.jpg" alt="Air Ambulance Service" className="w-full mt-4 rounded-lg shadow-lg" />
+    </div>
+  );
+};
+
+// Pages/About.js
+export const About = () => {
+  return (
+    <div className="p-8">
+      <h2 className="text-2xl font-bold">About Us</h2>
+      <p>StratoMED Air Medical Services Ltd. is dedicated to providing top-tier medical and aviation training...</p>
+      <img src="/images/emergency-medical-team.jpg" alt="Emergency Medical Team" className="w-full mt-4 rounded-lg shadow-lg" />
+    </div>
+  );
+};
+
+// Pages/Services.js
+export const Services = () => {
+  return (
+    <div className="p-8">
+      <h2 className="text-2xl font-bold">Our Services</h2>
+      <ul className="list-disc pl-5">
+        <li>Medical Air Transportation Academy</li>
+        <li>Medical Direction Services</li>
+        <li>Quality Management Program</li>
+        <li>Infection Prevention & Control</li>
+        <li>CAMTS Accreditation Consulting</li>
+      </ul>
+      <img src="/images/air-medical-training.jpg" alt="Air Medical Training" className="w-full mt-4 rounded-lg shadow-lg" />
+    </div>
+  );
+};
+
+// Pages/Training.js
+export const Training = () => {
+  return (
+    <div className="p-8">
+      <h2 className="text-2xl font-bold">Training & Courses</h2>
+      <p>Offering specialized training programs in air medical services...</p>
+      <img src="/images/training-session.jpg" alt="Training Session" className="w-full mt-4 rounded-lg shadow-lg" />
+    </div>
+  );
+};
+
+// Pages/Contact.js
+export const Contact = () => {
+  return (
+    <div className="p-8">
+      <h2 className="text-2xl font-bold">Contact Us</h2>
+      <p>Reach out to StratoMED for inquiries, training enrollment, and consultation services.</p>
+      <form className="mt-4 space-y-4">
+        <input type="text" placeholder="Your Name" className="p-2 border w-full" />
+        <input type="email" placeholder="Your Email" className="p-2 border w-full" />
+        <textarea placeholder="Your Message" className="p-2 border w-full"></textarea>
+        <button className="bg-blue-600 text-white p-2">Submit</button>
+      </form>
+      <img src="/images/contact-support.jpg" alt="Contact Support" className="w-full mt-4 rounded-lg shadow-lg" />
+    </div>
+  );
+};
